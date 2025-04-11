@@ -1,0 +1,13 @@
+streamlit
+pandas
+seaborn
+plotly
+matplotlib
+altair
+numerize
+requests
+joblib
+pages
+streamlit_elements
+streamlit-navigation-bar
+scikit-learn

@@ -1,0 +1,76 @@
+info csv
+tmmn: Min Temperature;
+tmmx: Max Temperature;
+rmax: Max Rel, Humidity;
+rmin: Min Rel, Humidity;
+
+
+# 3. CSS style definitions
+# selected3 = option_menu(None, ["Home", "Upload",  "Tasks", 'Settings'], 
+#     icons=['house', 'cloud-upload', "list-task", 'gear'], 
+#     menu_icon="cast", default_index=0, orientation="horizontal",
+#     styles={
+#         "container": {"padding": "0!important", "background-color": "#fafafa"},
+#         "icon": {"color": "orange", "font-size": "25px"}, 
+#         "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+#         "nav-link-selected": {"background-color": "green"},
+#     }
+# )
+
+
+# 1. as sidebar menu
+#with st.sidebar:
+    # selected = option_menu("Main Menu", ["Home", 'Settings'], 
+    #     icons=['house', 'gear'], menu_icon="cast", default_index=1)
+    # selected
+
+
+
+
+
+
+________________________________________________________________________________
+
+#______________________________Mon 1er code___________________________________________
+## Requete vers l'api pour recuperer les datas
+
+url = "http://192.168.111.73:8000/api/dht/"
+response = requests.get(url)
+
+if response.status_code != 200:
+    print(f"Error of connection in API: {response.status_code}")
+    
+else:
+    data = response.json()
+    data_bd = pd.DataFrame(data)
+    #print(data_bd.columns) 
+    
+    # columns = ['id', 'temperature', 'humidite', 'created_at', 'updated_at']
+
+## Fin de la requete  
+#_________________________________________________________________________
+
+# 2. horizontal menu
+st.logo("./images/logo.jpg")
+selected2 = st_navbar(["Home", "Predictions", 'Settings'])
+#selected2
+#_________________________________________________________________________
+
+### KPIs ###
+#### Sidebar ####
+#### Page Principal ####
+### Affichage des données ###
+## Methode de filtrage ##
+
+#st.markdown("---")
+#_________________________________________________________________________
+
+if selected2 == "Home":
+    st.title(':orange[Accueil]')
+if selected2 == "Predictions":
+    st.title(':orange[Chargement du dataset]')
+    
+if selected2 == "Settings":
+    st.title(':orange[Parametres]')
+#_____________________________________Fin 1er code____________________________________
+  
