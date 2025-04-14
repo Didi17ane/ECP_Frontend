@@ -67,7 +67,7 @@ st.markdown("""
 
 ## Requete vers l'api pour recuperer les datas
 
-url = "http://192.168.111.73:8000/api/dht/"
+url = "https://ecpbackend-production.up.railway.app/api/dht"
 response = requests.get(url)
 
 if response.status_code != 200:
